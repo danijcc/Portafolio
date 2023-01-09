@@ -32,11 +32,11 @@
                     >@lang('Contact')</a>
                 </li>
             
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link {{ setActive('dashboard') }} "
                     href="{{ route('dashboard')}}"
                     >@lang('Dashboard')</a>
-                </li>
+                </li> --}}
 
                 @guest
                     <li class="nav-item">
