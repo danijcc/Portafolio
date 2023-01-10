@@ -21,6 +21,9 @@
                <a class="d-flex justify-content-between align-items-center"
                    href="{{ route('projects.show', $project) }}"
                    >
+                   @if($project->image)
+                   <img src="/storage/{{ $project->image }}" alt="{{ $project->title}}">
+                   @endif
                     <span class="text-secondary font-weight-bold">
                      {{ $project->title}}
                     </span>
