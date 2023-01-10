@@ -48,23 +48,14 @@ class projectController extends  Controller
     }
     public function store(SaveProjectRequest $request)
     {
-        // $fields = request()->validate([
-        //     'title' => 'required',
-        //     'url' => 'required',
-        //     'description' => 'required',
-        // ]);
-       // return $request->all();
-       Project::create($request->validated());
-        // $title = request('title');
-        // $url = request('url');
-        // $description =  request('description');
+       
+       $project = new Project ($request->validated());
 
-         //Project::create(request()->only('title','url','description'));
-        //[
-        //     'title' => $title,
-        //     'url' => $url,
-        //     'description' => $description,
-        //      ]);
+       $project->image = $request->file('image')->store('images','public'); 
+
+       $project->save();
+       
+     
        return redirect()->route('projects.index')->with('status','El proyecto fue creado con exito');
     }
     /**
