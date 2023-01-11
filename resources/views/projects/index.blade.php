@@ -15,29 +15,38 @@
     </div>
     <hr>
     <p class="lead text-secondary">Proyectos realizados</p>
-    <ul class="list-group"> 
+    <div class="d-flex flex-wrap justify-content-between align-items-start"> 
        @forelse($projects as $project)
-           <li class="list-group-item border-0 mb-3 shadow-sm">
-               <a class="d-flex justify-content-between align-items-center"
-                   href="{{ route('projects.show', $project) }}"
-                   >
+  
+               <div class="card border-0 shadow-sm mt-4 mx-auto" style="width: 18rem">
                    @if($project->image)
-                   <img src="/storage/{{ $project->image }}" alt="{{ $project->title}}">
+                   <img class="card-img-top"
+                        src="/storage/{{ $project->image }}" 
+                        alt="{{ $project->title}}"
+                        >
                    @endif
-                    <span class="text-secondary font-weight-bold">
-                     {{ $project->title}}
-                    </span>
-                    <span>{{--class="text-black-50"  --}}
-                     {{ $project->created_at->format('d/m/Y')}}
-                    </span>
-                </a>
-            </li>
-       @empty 
-            <li class="list-group-item border-0 mb-3 shadow-sm">
-                No hay proyectos para mostrar
-                </li>
-        @endforelse
-            {{ $projects->links()}}
-    </ul>
+                   <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{{ route('projects.show', $project) }}"> {{ $project->title}}</a>
+                        </h5>
+                        <h6 class="card-subtitle">{{ $project->created_at->format('d/m/Y')}}</h6>
+                        <p class="card-text">{{ $project->description }}</p>
+                        <a href="{{route('projects.show', $project)}}"
+                            class="btn btn-primary btn-sm"
+                        >Ver mas...</a>
+                   </div>    
+                </div>
+
+            @empty
+                <div class="card">
+                    <div class="card-body">
+                        No hay proyectos para mostrar
+                    </div>
+                </div>
+            @endforelse
+            <div class="mt-4">
+                {{ $projects->links() }}
+            </div>
+     </div>
 </div>
 @endsection

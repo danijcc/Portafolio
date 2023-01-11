@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\Project;
-use Illuminate\Http\Request;
 use App\Http\Controllers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\SaveProjectRequest;
+
 
 class projectController extends  Controller
 {
@@ -80,12 +82,21 @@ class projectController extends  Controller
      */
     public function update(Project $project, SaveProjectRequest $request)
     {
-        $project->update($request->validated());
-        // $project->update([
-        //     'title' => request('title'),
-        //     'url' => request('url'),
-        //     'description' => request('description'),
-        // ]);
+        if($request->hasFile('image'))
+        {   
+            Storage::delete($project->image);
+
+            $project->fill($request->validated());
+
+            $project->image = $request->file('image')->store('images'); 
+
+            $project->save();
+        }else{
+             //ddd($request->validated());//impeccionar los que pasa por el request
+             $project->update(array_filter($request->validated()));
+        }
+       
+    
         return redirect()->route('projects.show', $project)->with('status','El proyecto fue actualizado con exito');
     }
 
@@ -97,6 +108,7 @@ class projectController extends  Controller
      */
     public function destroy(Project $project)
     {
+        Storage::delete($project->image);
         $project->delete();
         return redirect()->route('projects.index')->with('status','El proyecto fue eliminado con exito');
     }
