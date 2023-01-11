@@ -5,6 +5,7 @@ use App\Models\Project;
 use App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 use App\Http\Requests\SaveProjectRequest;
 
 
@@ -91,6 +92,13 @@ class projectController extends  Controller
             $project->image = $request->file('image')->store('images'); 
 
             $project->save();
+
+            //optimizacion de la imagen (bajar peso de la imagen)
+            $image = Image::make(Storage::get($project->image));
+            $image->widen(600)->encode();
+
+            Storage::put($project->image, (string) $image); 
+
         }else{
              //ddd($request->validated());//impeccionar los que pasa por el request
              $project->update(array_filter($request->validated()));
