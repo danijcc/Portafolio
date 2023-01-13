@@ -11,11 +11,7 @@ use App\Http\Requests\SaveProjectRequest;
 
 class projectController extends  Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {   //variable que almacena el modelo de la tabla project
 
@@ -27,12 +23,7 @@ class projectController extends  Controller
     }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(project $project)
     {
          //return $id;
@@ -43,12 +34,14 @@ class projectController extends  Controller
           'project' => $project
          ]);
     }
+
     public function create()
     {
         return view('projects.create',[
             'project' => new Project
         ]);
     }
+
     public function store(SaveProjectRequest $request)
     {
        
@@ -58,15 +51,11 @@ class projectController extends  Controller
 
        $project->save();
        
+       $this->optimizeImage($project);
      
        return redirect()->route('projects.index')->with('status','El proyecto fue creado con exito');
     }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Project $project)
     {
         return view('projects.edit',[ 
@@ -74,13 +63,7 @@ class projectController extends  Controller
            ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+  
     public function update(Project $project, SaveProjectRequest $request)
     {
         if($request->hasFile('image'))
@@ -93,11 +76,9 @@ class projectController extends  Controller
 
             $project->save();
 
-            //optimizacion de la imagen (bajar peso de la imagen)
-            $image = Image::make(Storage::get($project->image));
-            $image->widen(600)->encode();
-
-            Storage::put($project->image, (string) $image); 
+            
+            
+            $this->optimizeImage($project);
 
         }else{
              //ddd($request->validated());//impeccionar los que pasa por el request
@@ -108,16 +89,20 @@ class projectController extends  Controller
         return redirect()->route('projects.show', $project)->with('status','El proyecto fue actualizado con exito');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Project $project)
     {
         Storage::delete($project->image);
         $project->delete();
         return redirect()->route('projects.index')->with('status','El proyecto fue eliminado con exito');
+    }
+    protected function optimizeImage($project)
+    {
+        //optimizacion de la imagen (bajar peso de la imagen)
+            $image = Image::make(Storage::get($project->image));
+            $image->widen(600)->encode();
+
+            Storage::put($project->image, (string) $image); 
+
     }
 }
