@@ -28,8 +28,8 @@
                         Regresar
                     </a>
                     @auth
-                        <div class="btn-group btn-group-sm">    
-                            <a class="btn btn-primary"
+                        <div class="btn-group btn-group-sm" >    
+                            <a class="btn btn-primary mr-1"
                                 href="{{ route('projects.edit', $project)}}">Editar</a>
                             <a class="btn btn-danger"
                                 href="#" 

@@ -51,7 +51,7 @@ class projectController extends  Controller
 
        $project->save();
        
-       $this->optimizeImage($project);
+    //    $this->optimizeImage($project);
      
        return redirect()->route('projects.index')->with('status','El proyecto fue creado con exito');
     }
@@ -78,7 +78,7 @@ class projectController extends  Controller
 
             
             
-            $this->optimizeImage($project);
+            // $this->optimizeImage($project);
 
         }else{
              //ddd($request->validated());//impeccionar los que pasa por el request
