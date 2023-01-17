@@ -6,9 +6,27 @@
       alt="{{ $project->title }}"
   >
   @endif
+
   <div class="custom-file mb-2">
     <input name="image" type="file" class="custom-file-input" id="customFile">
     <label class="custom-file-label" for="customFile">Elegir Archivo...</label>
+  </div>
+
+  <div class="form-group">
+    <label for="category_id">Categoria del proyecto</label>
+    <select 
+        name="category_id" 
+        id="category_id"
+        class="form-control border-0 bg-light shadow-sm"
+        >
+            <option value="">Seleccione...</option>
+            @foreach($categories as $id => $name)
+            <option value="{{ $id }}"
+                    {{-- {{$id === $project->category_id ? 'selected' : '' }} --}}
+                    @if($id === $project->category_id) selected @endif
+            >{{ $name }}</option>
+            @endforeach
+      </select>
   </div>
 
   <div class="form-group">

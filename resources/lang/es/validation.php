@@ -137,6 +137,7 @@ return [
         'subject'               => 'asunto',
         'message'               => 'mensaje',
         'image'                 => 'imagen',
+        'category_id'           => 'categoria',
     ],
 
 ];

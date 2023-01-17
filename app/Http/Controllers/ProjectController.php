@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Project;
+use App\Models\Category;
 use App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -38,7 +39,8 @@ class projectController extends  Controller
     public function create()
     {
         return view('projects.create',[
-            'project' => new Project
+            'project' => new Project,
+            'categories' => Category::pluck('name', 'id')
         ]);
     }
 
@@ -58,14 +60,17 @@ class projectController extends  Controller
 
     public function edit(Project $project)
     {
+       
         return view('projects.edit',[ 
-            'project' => $project
+            'project' => $project,
+            'categories' => Category::pluck('name', 'id')
            ]);
     }
 
   
     public function update(Project $project, SaveProjectRequest $request)
     {
+        
         if($request->hasFile('image'))
         {   
             Storage::delete($project->image);
