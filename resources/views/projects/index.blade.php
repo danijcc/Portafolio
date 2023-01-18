@@ -5,10 +5,17 @@
 @section ('content')
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1 class="display-4 mb-0"> </h1>
-        <h1 class="display-4">@lang('Projects') </h1>
+        @isset($category)
+            <div>
+                <h1 class="display-4 mb-0">{{ $category->name }}</h1>
+                <a href="{{ route('projects.index') }}">Regresar al portafolio</a>
+            </div>
+        @else
+            <h1 class="display-4">@lang('Projects') </h1>
+           
+        @endisset
         @auth
-        <a class="btn btn-primary" 
+            <a class="btn btn-primary" 
             href="{{ route('projects.create') }}"
             >Crear proyecto</a>
         @endauth
@@ -36,8 +43,10 @@
                                 class="btn btn-primary btn-sm"
                             >Ver mas...</a>
                             @if($project->category_id)
-                            <a href="#" class="badge bedge secondary">{{ $project->category->name }}</a>
-                            @endif
+                            <a href="{{ route('categories.show', $project->category) }}"
+                                class="badge badge-secondary mb-1"
+                            >{{ $project->category->name }}</a>
+                        @endif
                         </div>
                    </div>    
                 </div>

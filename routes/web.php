@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 
-DB::listen(function($query) {
-    var_dump($query->sql);
-});
+// DB::listen(function($query) {
+//     var_dump($query->sql);
+// });
 
 
 Route::get('/', function () {
@@ -26,6 +26,7 @@ Route::resource('portafolio', 'ProjectController')
 ->names('projects')
 ->parameters(['portafolio' => 'project']);
 
+Route::get('categorias/{category}', 'CategoryController@show')->name('categories.show');
 
 Route::view ('/contacto','contact')->name('contact');
 Route::post('contact','MessageController@store')->name('messages.store');
