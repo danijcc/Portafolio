@@ -19,7 +19,7 @@ class projectController extends  Controller
         //orderBy('created_at','DESC')->get();
 
         return view('projects.index',[
-                'projects' => Project::latest()->paginate()
+                'projects' => Project::with('category')->latest()->paginate()
         ]);
     }
 
