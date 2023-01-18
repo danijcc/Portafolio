@@ -6,8 +6,8 @@ use App\Models\Category;
 use App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Facades\Image;
 use App\Http\Requests\SaveProjectRequest;
+use App\Events\ProjectSaved;
 
 
 class projectController extends  Controller
@@ -53,6 +53,7 @@ class projectController extends  Controller
 
        $project->save();
        
+       ProjectSaved::dispatch($project);
     //    $this->optimizeImage($project);
      
        return redirect()->route('projects.index')->with('status','El proyecto fue creado con exito');
@@ -82,7 +83,7 @@ class projectController extends  Controller
             $project->save();
 
             
-            
+            ProjectSaved::dispatch($project);
             // $this->optimizeImage($project);
 
         }else{
@@ -101,13 +102,6 @@ class projectController extends  Controller
         $project->delete();
         return redirect()->route('projects.index')->with('status','El proyecto fue eliminado con exito');
     }
-    protected function optimizeImage($project)
-    {
-        //optimizacion de la imagen (bajar peso de la imagen)
-            $image = Image::make(Storage::get($project->image));
-            $image->widen(600)->encode();
 
-            Storage::put($project->image, (string) $image); 
 
-    }
 }
