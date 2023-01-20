@@ -15,19 +15,19 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
+        
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+
         \App\Events\ProjectSaved::class =>[
             \App\Listeners\OptimizeProjectImage::class
-        ]
+        ],
+        
+        
     ];
 
-    /**
-     * Register any events for your application.
-     *
-     * @return void
-     */
+   
     public function boot()
     {
         //
