@@ -8,7 +8,7 @@
     <title>@yield('title','Aprendible')</title>
     <link rel="stylesheet" href="/css/app.css">
     <script src="/js/app.js" defer></script>
-    
+
 </head>
     <body>
         <div id="app" class="d-flex flex-column h-screen justify-content-between ">
