@@ -8,12 +8,13 @@
         <div class="col-12 col-lg-6">
             <h1 class="display-4 text-primary py-4"> Desarrollo web </h1>
             <hr>
-            <h2 class="display-9"> Todo a la nube </h2>
-                <p class="lead text-secondary">El desarrollo web tiene mucho 
-                    futuro, para los proximos años, porque existe una gran
+            <h2 class="display-9"> Disponibilidad Inmediata de Aplicaciones y Data</h2>
+                <p class="lead text-secondary">El desarrollo web  es un campo emocionante
+                     y en constante evolución, con un gran potencial para impactar positivamente 
+                     en la vida de las personas y en la economía global existe una gran
                     tendencia a mover todo tipo de desarrollo a la nube y tener 
-                    las aplicaciones y con ella la data siempre disponibles, compatibles con todos
-                    los dispositivos y sin necesidad de tener nada instalado en
+                    las aplicaciones y la data siempre disponibles, cerrando asi la brecha de la
+                    imcompatibilidad con caulquier dispositivo y sin necesidad de tener nada instalado en
                     nuestros equipos.</p>
             
                                
@@ -23,16 +24,20 @@
         </div>
     </div>
     <h2 class="display-9"> Desarrollo de APIs REST </h2>
-                <p class="lead text-secondary">Uno de los desarrollos web mas 
-                    comunes en la actualidad es el desarrollo de APIs RESTful,
-                    servicios web, o incluso microservicios. Ete tipo de desarrollo
-                    web seguirá creciendo cada año.</p>
-            <h2 class="display-9">Back y front separados </h2>
-                <p class="lead text-secondary">La separación del backend y 
-                    el frontend es una tendencia muy fuerte . De forma que
-                    ya no lo tendremos todo mezclado si no que nos encargaremos
-                    de desarrollar de forma separada y aislada las dos partes
-                    de una aplicación web.</p>
+                <p class="lead text-secondary">El desarrollo de APIs REST seguirá 
+                    creciendo en los próximos años debido a la necesidad de conectar 
+                    sistemas, el aumento de la movilidad y el crecimiento de la nube y el IoT.
+                    Las empresas que adopten esta tecnología tendrán una ventaja competitiva, 
+                    ya que podrán ofrecer servicios de valor agregado a sus clientes y competir
+                    de manera más eficiente en el mercado.</p>
+            <h2 class="display-9">Separar Back y front </h2>
+                <p class="lead text-secondary">La separación de back-end y front-end tiene varios beneficios.
+                     Primero, permite especializarse en una área específica y trabajar 
+                     de manera más eficiente. También facilita el mantenimiento y escalabilidad de la aplicación,
+                    ya que las actualizaciones y cambios en una parte de la aplicación no afectan a la otra.
+                    Además, la separación también ayuda a aumentar la seguridad de la aplicación, 
+                    ya que los datos confidenciales se almacenan en el back-end y están protegidos 
+                    contra ataques externos.</p>
             <h2 class="display-9">Web apps SPA</h2>
                 <p class="lead text-secondary">El desarrollo de aplicaciones web 
                     de una sola página(SPA) seguirá creciendo este año, y es la 

@@ -26,11 +26,11 @@
                     >@lang('Projects')</a>
                 </li>
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link {{ setActive('contact') }}"
                     href="{{ route('contact') }}"
                     >@lang('Contact')</a>
-                </li>
+                </li> --}}
             
                 {{-- <li class="nav-item">
                     <a class="nav-link {{ setActive('dashboard') }} "
