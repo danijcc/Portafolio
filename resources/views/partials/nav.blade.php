@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">  
             <ul class="nav nav-pills">
                 <li class="nav-item ">
-                    <a class=" {{ setActive('home') }}"
+                    <a class="nav-link {{ setActive('home') }}"
                         href="{{ route('home') }}"
                         >@lang('Home')</a>
                 </li> 
