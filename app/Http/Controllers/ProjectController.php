@@ -96,7 +96,7 @@ class projectController extends  Controller
     }
 
 
-    public function destroy(Project $project)
+    public function destroy(Project $project, SaveProjectRequest $request)
     {
         Storage::delete($project->image);
         $project->delete();

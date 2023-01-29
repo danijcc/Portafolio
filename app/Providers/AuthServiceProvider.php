@@ -25,8 +25,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('create-projects',function($user){
-            return $user->email === '';
+      
+        Gate::define('delete-projects',function($user){
+            return $user->email === 'danicolmenares7@gmail.com';
+        });
+        
+        Gate::define('update-projects',function($user){
+            return $user->email === 'danicolmenares7@gmail.com';
         });
     }
 }
