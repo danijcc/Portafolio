@@ -37,7 +37,7 @@ class projectController extends  Controller
     }
 
     public function create()
-    {
+    {   
         return view('projects.create',[
             'project' => new Project,
             'categories' => Category::pluck('name', 'id')
@@ -96,11 +96,15 @@ class projectController extends  Controller
     }
 
 
-    public function destroy(Project $project, SaveProjectRequest $request)
+
+    public function destroy(Project $project)
     {
         Storage::delete($project->image);
+
         $project->delete();
-        return redirect()->route('projects.index')->with('status','El proyecto fue eliminado con exito');
+
+        return redirect()->route('projects.index')
+            ->with('status', 'El proyecto fue eliminado con éxito.');
     }
 
 

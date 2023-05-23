@@ -32,7 +32,7 @@ Route::get('categorias/{category}', 'CategoryController@show')->name('categories
 Route::view ('/contacto','contact')->name('contact');
 Route::post('contact','MessageController@store')->name('messages.store');
 
-
+Route::delete('/portafolio/{project}', 'ProjectController@destroy')->name('projects.destroy');
 
 
 

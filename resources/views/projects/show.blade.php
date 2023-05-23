@@ -35,12 +35,12 @@
                     @auth
                         <div class="btn-group btn-group-sm" >    
                             <a class="btn btn-primary mr-1"
-                                href="{{ route('projects.edit', $project)}}">Editar</a>
+                                href="{{ route('projects.edit', $project) }}">Editar</a>
+                                
                             <a class="btn btn-danger"
                                 href="#" 
-                                onclick="document.
-                                getElementById('delete-project').
-                                submit()">Eliminar</a>
+                                onclick="document.getElementById('delete-project').submit()"
+                                >Eliminar</a>
                         </div>
                         <form id="delete-project" 
                             class="d-none"

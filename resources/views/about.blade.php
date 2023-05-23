@@ -29,7 +29,7 @@
             <img class="img-fluid mb-1" src="/img/perfil.png" alt="Desarrollo Web">
         </div>
                      <a class="btn btn-lg btn-block btn-primary" 
-                     href="{{ route('contact')}}">Contactame</a>
+                     href="https://www.facebook.com/dani.colmenarescadiz">Contactame</a>
                      <a class="btn btn-lg btn-block btn-outline-primary" 
                      href="{{ route('projects.index')}}">Portafolio</a>  
     </div>
