@@ -6,17 +6,26 @@
 <div class="container">
     <div class="row">
         <div class="col-12 col-lg-6">
-            <h1 class="display-4 text-primary py-4"> Descripcion de esta aplicacion </h1>
+            <h1 class="display-5 text-primary py-4"> Descripcion de esta aplicacion: </h1>
             <hr>
             <h2 class="display-9">Implementacion de Gates o puertas de acceso  </h2>
                 <p class="lead text-secondary">El Usuario Admin con el cual podra Crear, Actualizar y Borrar
-                    es danicolmenares7@gmail.com su password es 12345678 para comprobar la politica de seguridad
-                cree otro usuario desde  
-                <x-nav-link :href="route('register')" :active="request()->routeIs('home')">
-                    @lang('Aqui')
-                 </x-nav-link>podra visualizar mas no podra  Crear, Actualizar o Borrar esta Nota: los botones estaran activos
-                 aun no tenga el permiso esto es totalmente intencional esta deuda tecnica es para demostrar 
-                 el retorno del la vista forbidden o prohibido
+                    es
+                    <h4 class="display-9">User: danicolmenares7@gmail.com </h4>
+                    <h4 class="display-9">Password: 12345678 </h4>
+                    <p class="lead text-secondary">
+                    Para comprobar la politicas de seguridad cree otro usuario desde: 
+                    </p>
+                    <h4 class="display-9">
+                        <x-nav-link :href="route('register')" :active="request()->routeIs('home')">
+                            @lang('Aqui')
+                        </x-nav-link>
+                     </h4>
+                     <p class="lead text-secondary">
+                        Con este podra visualizar mas no podra  Crear, Actualizar o Borrar. Nota: los botones estaran activos
+                        aunque no tenga el permiso esto es totalmente intencional esta deuda tecnica es para demostrar 
+                        el retorno de la vista forbidden o prohibido (CONSIDERE NO BORRAR LOS PROYECTOS YA CREADOS SIRVASE EN 
+                        REALIZAR PRUEBAS CON PROYECTOS CREADOS POR USTED).</p>
             
                                
         </div>

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\SaveProjectRequest;
 use App\Events\ProjectSaved;
-
+use Illuminate\Support\Facades\Gate;
 
 class projectController extends  Controller
 {
@@ -99,10 +99,11 @@ class projectController extends  Controller
 
     public function destroy(Project $project)
     {
+        abort_unless( Gate::allows('delete-projects'),403); 
         Storage::delete($project->image);
-
+       
         $project->delete();
-
+      
         return redirect()->route('projects.index')
             ->with('status', 'El proyecto fue eliminado con éxito.');
     }

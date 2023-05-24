@@ -14,8 +14,9 @@ class SaveProjectRequest extends FormRequest
      */
     public function authorize()
     {
-        return Gate::allows('delete-projects');
         return Gate::allows('update-projects');
+        return Gate::allows('delete-projects');
+        
     }
 
     /**

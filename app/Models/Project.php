@@ -14,10 +14,10 @@ class Project extends Model
     //$fillable = ['title','url','description'];
     //Project por defecto consulta la tabla como projects en plural y quitando la mayuscula (eloquent hace esto por defecto)
     //use HasFactory;
-    public function getRouteKeyName()
-    {
-        return 'url';
-    }
+    // public function getRouteKeyName()
+    // {
+    //     return 'url';
+    // }
     
     public function category()
     {
